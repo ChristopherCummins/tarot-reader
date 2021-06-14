@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+	<h3>May I give you a reading?</h3>
+	<p><a href="{{ url_for('single') }}">Single Card Pull</a></p>
+	<p>This is a reading that pulls a single card. Think about a particular issue you're curious about and consider what the card
+	you pull is telling you about your predicament.</p>
+	
+	<p><a href="{{ url_for('three') }}">Three Card Pull</a></p>
+	<p>This reading pulls three cards. In this kind of spread, the guidance given to you by the tarot cards will be contextualized as insight into the past, the present, and the future of your issue.</p>
+	
+	
+	
+{% endblock %}

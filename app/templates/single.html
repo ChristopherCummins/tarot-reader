@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+<div class ="row">
+	<div class="col-md-12">
+	{% if position: %}
+		<h3>You've pulled {{ name }} - Reversed</h3>
+		<p>When reversed, {{ name }} represents themes of {{ reversedDescription }}.</p>
+		<img src="/static/{{ image }}" style="transform: rotate(180deg)" />
+	{% else %}
+		<h3>You've pulled {{ name }} - Upright</h3>
+		<p>In the upright position, {{ name }} represents themes of {{ uprightDescription }}.</p>
+		<img src="/static/{{ image }}" />
+	{% endif %}
+	</div>
+</div>
+{% endblock %}

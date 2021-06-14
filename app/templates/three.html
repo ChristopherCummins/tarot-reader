@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+
+<div class="row">
+	<div class="col=md-4">
+	</div>
+	<div class="col-md-4">
+		<h3>Your past is...</h3>
+	</div>
+	<div class="col-md-4">
+		<h3>Your present is...</h3>
+	</div>
+	<div class="col-md-4">
+		<h3>Your future is...</h3>
+	</div>
+</div>
+
+<div class="row">
+	{% for card in spread %}
+		{% if card[1]: %}
+			<div class="col-md-4">
+				<h3>{{ card[0].name }} - Reversed</h3>
+			<p>When reversed, {{ card[0].name }} represents themes of {{ card[0].reversed }}.</p>
+			<img src="/static/{{ card[0].image }}" style="transform: rotate(180deg)" />
+		</div>
+		{% else %}
+			<div class="col-md-4">
+				<h3>{{ card[0].name }}</h3>
+			<p>In the upright position, {{ card[0].name }} represents themes of {{ card[0].upright }}.</p>
+			<img src="/static/{{ card[0].image }}" />
+		</div>
+		{% endif %}	
+	{% endfor %}}	
+</div>
+
+<style>
+	table {
+	border-collapse: collapse;
+	}
+</style>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<table style="width:100%">
+	<tr>
+		<th>Your past is</th>
+		<th>Your present is</th> 
+		<th>Tour future is</th>
+	</tr>
+	{% for card in spread %}
+		{% if card[1]: %}
+			<tr>
+				<td>{{ card[0].name }} - Reversed</td>
+			</tr>
+			<tr>
+				<td>When reversed, {{ card[0].name }} represents themes of {{ card[0].reversed }}.</td>
+			</tr>
+			<tr>
+				<td><img src="/static/{{ card[0].image }}" style="transform: rotate(180deg)" /></td>
+			</tr>
+		{% else %}
+			<tr>
+				<td>{{ card[0].name }}</td>
+			</tr>
+			<tr>
+				<td>When reversed, {{ card[0].name }} represents themes of {{ card[0].upright }}.</td>
+			</tr>
+			<tr>
+				<td><img src="/static/{{ card[0].image }}" style="transform: rotate(180deg)" /></td>
+			</tr>			
+		{% endif %}
+	{% endfor %}
+</table>
+
+{% endblock %}
