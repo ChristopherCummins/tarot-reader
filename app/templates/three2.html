@@ -1,36 +1,37 @@
 {% extends "base.html" %}
 
-{% block content %}
+{% block app_content %}
 
-<table style="width:100%">
-	<tr>
-		<th>Your past is</th>
-		<th>Your present is</th> 
-		<th>Tour future is</th>
-	</tr>
+<div class="row">
+	<div class="col=md-4">
+	</div>
+	<div class="col-md-4">
+		<h3>Your past is...</h3>
+	</div>
+	<div class="col-md-4">
+		<h3>Your present is...</h3>
+	</div>
+	<div class="col-md-4">
+		<h3>Your future is...</h3>
+	</div>
+</div>
+
+<div class="row">
 	{% for card in spread %}
 		{% if card[1]: %}
-			<tr>
-				<td>{{ card[0].name }} - Reversed</td>
-			</tr>
-			<tr>
-				<td>When reversed, {{ card[0].name }} represents themes of {{ card[0].reversed }}.</td>
-			</tr>
-			<tr>
-				<td><img src="/static/{{ card[0].image }}" style="transform: rotate(180deg)" /></td>
-			</tr>
+			<div class="col-md-4">
+				<h3>{{ card[0].name }} - Reversed</h3>
+			<p>When reversed, {{ card[0].name }} represents themes of {{ card[0].reversed }}.</p>
+			<img src="/static/{{ card[0].image }}" style="transform: rotate(180deg)" />
+		</div>
 		{% else %}
-			<tr>
-				<td>{{ card[0].name }}</td>
-			</tr>
-			<tr>
-				<td>When reversed, {{ card[0].name }} represents themes of {{ card[0].upright }}.</td>
-			</tr>
-			<tr>
-				<td><img src="/static/{{ card[0].image }}" style="transform: rotate(180deg)" /></td>
-			</tr>			
-		{% endif %}
-	{% endfor %}
-</table>
+			<div class="col-md-4">
+				<h3>{{ card[0].name }}</h3>
+			<p>In the upright position, {{ card[0].name }} represents themes of {{ card[0].upright }}.</p>
+			<img src="/static/{{ card[0].image }}" />
+		</div>
+		{% endif %}	
+	{% endfor %}	
+</div>
 
 {% endblock %}
